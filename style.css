@@ -1,0 +1,57 @@
+      #Header{
+        text-align: center;
+        margin-top: 30px;
+        font-family: 'Roboto Mono', monospace;
+      }
+      #container{
+        display: grid;
+        /* grid-template-columns:repeat(4,1fr); */
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        margin-left: 130px;
+        margin-top: 40px;
+      }
+      .card{
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 1px 1px 1px 1px;
+        color: white;
+        border-radius: 20px !important;
+        font-family: 'Roboto Mono', monospace;
+        background: linear-gradient(#1a2849,#315b96);
+        border: white;
+        transition: box-shadow 0.5s;
+
+      }
+      #images{
+        height:100px !important;
+        width: 90px !important;
+        margin: 0 auto;
+      }
+      #banner img{
+        width: 100%;
+      }
+      #banner{
+        position: relative;
+      }
+      #user_input{
+        width: 500px;
+        margin: 0 auto;
+        border: solid !important;
+        border-color: grey;
+        margin-top: 20px;
+      }
+      .help-block{
+        text-align: center;
+        margin-top: 20px;
+        font-family: 'Roboto Mono', monospace;
+      }
+      #search-button{
+        width: 130px !important;
+        border-radius: 9px !important;
+      }
+      .card:hover{
+           box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.8);
+          /* border-radius: 20px !important; */
+      }

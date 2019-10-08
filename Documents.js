@@ -1,0 +1,6 @@
+let container = document.querySelector("#container")
+let input = document.getElementById("user_input")
+let button = document.querySelector("#search-button")
+let header = document.getElementById("Header")
+let card_body = document.querySelector(".card-text")
+let image = document.getElementById("#image")

@@ -1,66 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      #Header{
-        text-align: center;
-        margin-top: 30px;
-        font-family: 'Roboto Mono', monospace;
-      }
-      #container{
-        display: grid;
-        /* grid-template-columns:repeat(4,1fr); */
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        grid-column-gap: 20px;
-        grid-row-gap: 20px;
-        margin-left: 130px;
-        margin-top: 40px;
-      }
-      .card{
-        font-weight: bold;
-        text-align: center;
-        box-shadow: 1px 1px 1px 1px;
-        color: white;
-        border-radius: 20px !important;
-        font-family: 'Roboto Mono', monospace;
-        background: linear-gradient(#1a2849,#315b96);
-        border: white;
-        transition: box-shadow 0.5s;
-
-      }
-      #images{
-        height:100px !important;
-        width: 90px !important;
-        margin: 0 auto;
-      }
-      #banner img{
-        width: 100%;
-      }
-      #banner{
-        position: relative;
-      }
-      #user_input{
-        width: 500px;
-        margin: 0 auto;
-        border: solid !important;
-        border-color: grey;
-        margin-top: 20px;
-      }
-      .help-block{
-        text-align: center;
-        margin-top: 20px;
-        font-family: 'Roboto Mono', monospace;
-      }
-      #search-button{
-        width: 130px !important;
-        border-radius: 9px !important;
-      }
-      .card:hover{
-           box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.8);
-          /* border-radius: 20px !important; */
-      }
-      </style>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel = "stylesheet"
+      type = "text/css"
+      href = "style.css" />
       <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -68,7 +12,6 @@
       <meta charset="utf-8">
       <title></title>
       </head>
-
       <body>
        <nav class="navbar navbar-dark bg-dark">
           <a class="navbar-brand" href="#">LovetheRain</a>
@@ -92,12 +35,13 @@
               </div>
       </body>
   <script>
-let container = document.querySelector("#container")
-let input = document.getElementById("user_input")
-let button = document.querySelector("#search-button")
-let header = document.getElementById("Header")
-let card_body = document.querySelector(".card-text")
-let image = document.getElementById("#image")
+
+  let container = document.querySelector("#container")
+  let input = document.getElementById("user_input")
+  let header = document.getElementById("Header")
+  let card_body = document.querySelector(".card-text")
+  let image = document.getElementById("#image")
+  let button = document.querySelector("#search-button")
 
 button.addEventListener("click", (event) => {
     event.preventDefault()
