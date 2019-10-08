@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #Header{
+        text-align: center;
+        margin-top: 30px;
+        font-family: 'Roboto Mono', monospace;
+      }
+      #container{
+        display: grid;
+        /* grid-template-columns:repeat(4,1fr); */
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        margin-left: 130px;
+        margin-top: 40px;
+      }
+      .card{
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 1px 1px 1px 1px;
+        color: white;
+        border-radius: 20px !important;
+        font-family: 'Roboto Mono', monospace;
+        background: linear-gradient(#1a2849,#315b96);
+        border: white;
+        transition: box-shadow 0.5s;
+
+      }
+      #images{
+        height:100px !important;
+        width: 90px !important;
+        margin: 0 auto;
+      }
+      #banner img{
+        width: 100%;
+      }
+      #banner{
+        position: relative;
+      }
+      #user_input{
+        width: 500px;
+        margin: 0 auto;
+        border: solid !important;
+        border-color: grey;
+        margin-top: 20px;
+      }
+      .help-block{
+        text-align: center;
+        margin-top: 20px;
+        font-family: 'Roboto Mono', monospace;
+      }
+      #search-button{
+        width: 130px !important;
+        border-radius: 9px !important;
+      }
+      .card:hover{
+           box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.8);
+          /* border-radius: 20px !important; */
+      }
+      </style>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <meta charset="utf-8">
+      <title></title>
+      </head>
+
+      <body>
+       <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">LovetheRain</a>
+       </nav>
+          <div id="banner">
+              <img id="image" src="https://source.unsplash.com/EZZ_CxzzGZE/1000x400">
+              <div class="form-group">
+                  <label for=""></label>
+                  <input type="text" class="form-control" id="user_input" placeholder="">
+                  <p class="help-block">Search the Weather</p>
+                  <div class="text-center">
+                      <button id="search-button" class="btn btn-success">Search</button>
+                      <div>
+                      </div>
+                  </div>
+                  <div id="Header">
+                  </div>
+                  <div id="container">
+
+                  </div>
+              </div>
+      </body>
+  <script>
+let container = document.querySelector("#container")
+let input = document.getElementById("user_input")
+let button = document.querySelector("#search-button")
+let header = document.getElementById("Header")
+let card_body = document.querySelector(".card-text")
+let image = document.getElementById("#image")
+
+button.addEventListener("click", (event) => {
+    event.preventDefault()
+    let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${input.value}&key=bf06e114879b48e59c8107b1a82e5f98`
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            header.innerText = ""
+            container.innerText = ""
+            header.insertAdjacentHTML("beforeend", `<h1>City: ${data["city_name"]}</h1>`)
+            document.getElementById("image").src = `https://source.unsplash.com/1000x400/?${data["city_name"]},city`;
+            data["data"].forEach((element, idx) => {
+                container.insertAdjacentHTML("beforeend", `
+        <div id="slow-transition">
+        <div class="card" style="width: 18rem;">
+        <img id="images" src="https://www.weatherbit.io/static/img/icons/${element["weather"]["icon"]}.png" class="card-img-top" alt="...">
+        <div class="card-body">
+         <div class="card-text"></div>
+         <p>Date: ${element["datetime"]}</p>
+         <p>Max Temp: ${element["max_temp"]}°C</p>
+         <p>Min Temp: ${element["low_temp"]}°C</p>
+        </div>
+        </div>`)
+            })
+        })
+})
+  </script>
+</html>
