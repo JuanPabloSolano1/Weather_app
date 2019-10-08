@@ -45,7 +45,7 @@
 
 button.addEventListener("click", (event) => {
     event.preventDefault()
-    let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${input.value}&key=bf06e114879b48e59c8107b1a82e5f98`
+    let url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${input.value}&key=bf06e114879b48e59c8107b1a82e`
     fetch(url)
         .then(response => response.json())
         .then(data => {
